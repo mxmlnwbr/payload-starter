@@ -23,10 +23,11 @@ export default async function HomePage() {
       {user && <h1>Welcome back, {user.email}</h1>}
 
       {posts.length > 0 ? <h1>Posts</h1> : <h1>No posts</h1>}
-      {posts?.map(post => <div key={post.id}>
+      {posts?.map(post => <div className="post" key={post.id}>
         <h2>{post.title}</h2>
         <RichText data={post.content} />
         <Image src={post.layout?.[0].image?.url} alt={post.layout?.[0].image?.alt} width={500} height={500} />
+        <a href={post.layout?.[0].cta?.url}>{post.layout?.[0].cta?.label}</a>
       </div>)}
     </div>
   )
