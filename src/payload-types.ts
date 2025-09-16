@@ -180,6 +180,20 @@ export interface Post {
     };
     [k: string]: unknown;
   };
+  layout?:
+    | {
+        heading: string;
+        subheading: string;
+        image: number | Media;
+        cta: {
+          label: string;
+          url: string;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'hero';
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -291,6 +305,25 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
   content?: T;
+  layout?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              image?: T;
+              cta?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
 }
