@@ -26,7 +26,7 @@ export default async function HomePage() {
       {posts?.map(post => <div className="post" key={post.id}>
         <h2>{post.title}</h2>
         <RichText data={post.content} />
-        <Image src={post.layout?.[0].image?.url} alt={post.layout?.[0].image?.alt} width={500} height={500} />
+        <Image src={post.layout?.[0].image?.url} alt={post.layout?.[0].image?.alt} width={160} height={200} />
         <a href={post.layout?.[0].cta?.url}>{post.layout?.[0].cta?.label}</a>
       </div>)}
     </div>
